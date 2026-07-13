@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H&amp;W — Governed AI Operating Systems</title>
+<meta name="description" content="H&W builds governed AI operating systems that help schools and small businesses run with more order, visibility, proof, and human-controlled accountability — without replacing leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0C0E0D;
+    --ink-2: #141715;
+    --paper: #F4F2EA;
+    --paper-2: #EAE7DB;
+    --line: #D8D4C7;
+    --emerald: #12BD8A;
+    --emerald-deep: #0C6B52;
+    --emerald-ink: #073A2C;
+    --amber: #E9A23B;
+    --amber-ink: #6B4409;
+    --lime: #C8F31D;
+    --muted: #8C8F89;
+    --muted-d: #9BA39E;
+    --shadow: 6px 6px 0 var(--ink);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .display { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.02em; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+
+  /* NAV */
+  header { position: sticky; top: 0; z-index: 50; background: rgba(244,242,234,0.85); backdrop-filter: blur(10px); border-bottom: 2px solid var(--ink); }
+  .nav { max-width: 1140px; margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .wordmark { font-family: "Space Grotesk"; font-weight: 700; font-size: 22px; letter-spacing: -0.03em; }
+  .wordmark span { color: var(--emerald-deep); }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--ink); }
+  .nav-links a.plain:hover { color: var(--emerald-deep); }
+  .btn {
+    display: inline-block; text-decoration: none; font-family: "Space Grotesk"; font-weight: 600;
+    font-size: 15px; padding: 11px 20px; border: 2px solid var(--ink); background: var(--emerald);
+    color: var(--ink); border-radius: 2px; box-shadow: 3px 3px 0 var(--ink); transition: transform .08s ease, box-shadow .08s ease;
+  }
+  .btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--ink); }
+  .btn:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--ink); }
+  .btn.lg { font-size: 17px; padding: 15px 28px; box-shadow: 5px 5px 0 var(--ink); }
+  .btn.amber { background: var(--amber); }
+  .btn.paper { background: var(--paper); }
+  @media (max-width: 720px) { .nav-links a.plain { display: none; } }
+
+  /* HERO */
+  .hero { background: var(--ink); color: var(--paper); padding: 74px 0 84px; overflow: hidden; position: relative; }
+  .hero::after { content:""; position:absolute; inset:0; background:
+     radial-gradient(60% 80% at 85% 10%, rgba(18,189,138,0.18), transparent 60%); pointer-events:none; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 52px; align-items: center; position: relative; z-index: 1; }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .pill { display: inline-flex; align-items: center; gap: 9px; font-family:"JetBrains Mono"; font-size: 12.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--emerald); border: 1px solid rgba(18,189,138,0.4); padding: 6px 13px; border-radius: 999px; margin-bottom: 26px; animation: pillblink 1.2s steps(1, end) infinite; }
+  @keyframes pillblink { 0%, 49.9% { color: var(--paper); } 50%, 100% { color: var(--emerald); } }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 0 rgba(200,243,29,0.6); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(200,243,29,0.5);} 70%{box-shadow:0 0 0 8px rgba(200,243,29,0);} 100%{box-shadow:0 0 0 0 rgba(200,243,29,0);} }
+  .hero h1 { font-size: clamp(38px, 5.6vw, 66px); line-height: 1.02; font-weight: 700; margin: 0 0 24px; }
+  .rot { color: var(--emerald); position: relative; white-space: nowrap; }
+  .rot::after { content:""; position:absolute; left:0; right:0; bottom: 4px; height: 5px; background: var(--lime); opacity: .85; }
+  .hero p.lede { font-size: 19px; line-height: 1.55; color: #C7CBC6; max-width: 520px; margin: 0 0 34px; }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-photo { position: relative; }
+  .hero-photo .frame { border: 2px solid var(--paper); border-radius: 4px; overflow: hidden; box-shadow: 10px 10px 0 var(--emerald); }
+  .hero-photo img { width: 100%; height: 400px; object-fit: cover; }
+  @media (max-width: 860px) { .hero-photo img { height: 300px; } }
+
+  /* MARQUEE */
+  .marquee { background: var(--emerald); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); overflow: hidden; padding: 13px 0; }
+  .marquee-track { display: flex; gap: 40px; white-space: nowrap; width: max-content; animation: scroll 34s linear infinite; }
+  .marquee span { font-family: "Space Grotesk"; font-weight: 600; font-size: 16px; color: var(--emerald-ink); text-transform: uppercase; letter-spacing: 0.01em; }
+  .marquee .sep { color: var(--ink); }
+  @keyframes scroll { from { transform: translateX(0);} to { transform: translateX(-50%);} }
+
+  /* SECTIONS */
+  section { padding: 88px 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 34px; }
+  .sec-num { font-family: "JetBrains Mono"; font-size: 15px; font-weight: 500; color: var(--emerald-deep); border: 1.5px solid var(--emerald-deep); border-radius: 999px; padding: 3px 11px; }
+  .sec-label { font-family:"JetBrains Mono"; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .big { font-size: clamp(30px, 4vw, 48px); line-height: 1.08; font-weight: 700; margin: 0 0 22px; max-width: 900px; }
+  .big .hl { color: inherit; }
+  p.body { font-size: 18px; color: #3B3E3A; max-width: 640px; margin: 0 0 18px; }
+
+  .alt { background: var(--paper-2); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
+
+  /* PROBLEM stat row */
+  .statrow { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 40px; }
+  @media (max-width: 760px){ .statrow { grid-template-columns: 1fr; } }
+  .stat { border: 2px solid var(--ink); border-radius: 4px; padding: 24px; background: var(--paper); box-shadow: var(--shadow); }
+  .stat .k { font-family:"Space Grotesk"; font-weight: 700; font-size: 40px; line-height: 1; color: var(--emerald-deep); }
+  .stat .v { font-size: 15px; color: #3B3E3A; margin-top: 10px; }
+
+  /* BELIEVE bento */
+  .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 820px){ .bento { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px){ .bento { grid-template-columns: 1fr; } }
+  .tile { border: 2px solid var(--ink); border-radius: 4px; padding: 22px; background: var(--paper); box-shadow: var(--shadow); }
+  .tile .mono { font-size: 12px; color: var(--emerald-deep); text-transform: uppercase; letter-spacing: 0.08em; }
+  .tile h4 { font-family:"Space Grotesk"; font-size: 19px; margin: 12px 0 8px; font-weight: 600; }
+  .tile p { font-size: 14.5px; color: #45483F; margin: 0; }
+  .tile.fill { background: var(--ink); color: var(--paper); grid-column: span 1; }
+  .tile.fill h4 { color: var(--paper); }
+  .tile.fill p { color: #C7CBC6; }
+  .tile.emerald { background: var(--emerald); }
+  .tile.emerald .mono { color: var(--emerald-ink); }
+  .tile.amber { background: var(--amber); }
+  .tile.amber .mono { color: var(--amber-ink); }
+
+  .log { background: var(--ink); color: #DCE3E0; border: 2px solid var(--ink); border-radius: 4px; padding: 26px 28px; font-size: 14px; line-height: 2; margin-top: 26px; box-shadow: 6px 6px 0 var(--emerald); }
+  .log .tag { color: var(--lime); }
+
+  /* PROVIDE */
+  .provide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 46px; align-items: center; }
+  @media (max-width: 820px){ .provide-grid { grid-template-columns: 1fr; } }
+  .provide-photo { border: 2px solid var(--ink); border-radius: 4px; overflow: hidden; box-shadow: 10px 10px 0 var(--amber); }
+  .provide-photo img { width: 100%; height: 360px; object-fit: cover; }
+  ul.checks { list-style: none; padding: 0; margin: 22px 0 0; }
+  ul.checks li { padding-left: 30px; position: relative; margin-bottom: 13px; font-size: 16px; color: #333630; }
+  ul.checks li::before { content:"\2713"; position:absolute; left:0; top:-1px; font-weight:700; color: var(--ink); background: var(--emerald); width: 21px; height: 21px; border-radius: 3px; display:grid; place-items:center; font-size: 13px; border: 1.5px solid var(--ink); }
+  .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 46px; }
+  @media (max-width: 620px){ .price-grid { grid-template-columns: 1fr; } }
+  .price { border: 2px solid var(--ink); border-radius: 4px; padding: 26px; box-shadow: var(--shadow); }
+  .price.free { background: var(--emerald); }
+  .price.paid { background: var(--paper); }
+  .price .tagp { font-family:"JetBrains Mono"; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .price.free .tagp { color: var(--emerald-ink); }
+  .price.paid .tagp { color: var(--muted); }
+  .price h4 { font-family:"Space Grotesk"; font-size: 22px; margin: 8px 0 12px; font-weight: 700; }
+  .price p { font-size: 15px; margin: 0; color: #2C2F2A; }
+  .price.free p { color: var(--emerald-ink); }
+
+  /* CTA */
+  .cta { background: var(--ink); color: var(--paper); border-top: 2px solid var(--ink); }
+  .cta-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; align-items: center; }
+  @media (max-width: 820px){ .cta-grid { grid-template-columns: 1fr; } }
+  .cta h2 { font-size: clamp(30px, 4.4vw, 52px); line-height: 1.05; font-weight: 700; margin: 0 0 22px; }
+  .cta h2 .hl { color: var(--emerald); }
+  .cta p { font-size: 18px; color: #C7CBC6; max-width: 520px; margin: 0 0 30px; }
+  .cta-photo { border: 2px solid var(--paper); border-radius: 4px; overflow: hidden; box-shadow: 10px 10px 0 var(--emerald); }
+  .cta-photo img { width: 100%; height: 340px; object-fit: cover; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: var(--muted-d); padding: 40px 0 56px; border-top: 1px solid #262A27; }
+  .foot { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; flex-wrap: wrap; }
+  .foot .wordmark { color: var(--paper); }
+  .foot a { color: var(--muted-d); text-decoration: none; font-size: 14px; }
+  .foot a:hover { color: var(--emerald); }
+  .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .marquee-track { animation: none; }
+    .dot { animation: none; }
+    .pill { animation: none; color: var(--emerald); }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="wordmark">H<span>&amp;</span>W</div>
+    <div class="nav-links">
+      <a class="plain" href="#problem">The problem</a>
+      <a class="plain" href="#provide">The pilot</a>
+      <a class="btn" href="mailto:cdw68925@gmail.com?subject=Readiness%20conversation">Book a readiness call</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="pill"><span class="dot"></span> Onboarding schools</div>
+      <h1>Stop letting what matters get <span class="rot" id="rot">buried</span>.</h1>
+      <p class="lede">H&amp;W builds governed AI operating systems that give businesses, schools, and other organizations real order, visibility, and proof — without replacing leadership.</p>
+      <div class="hero-ctas">
+        <a class="btn lg" href="mailto:cdw68925@gmail.com?subject=Readiness%20conversation">Start the readiness conversation</a>
+        <a class="btn lg paper" href="#provide">See the pilot</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="https://images.pexels.com/photos/7654601/pexels-photo-7654601.jpeg" alt="Two business advisors reviewing documents together in an office">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>No proof, no Healthy</span><span class="sep">/</span>
+    <span>Silence is never approval</span><span class="sep">/</span>
+    <span>A loud failure beats a silent one</span><span class="sep">/</span>
+    <span>Proven now, not proven once</span><span class="sep">/</span>
+    <span>We protect leadership, not replace it</span><span class="sep">/</span>
+    <span>No proof, no Healthy</span><span class="sep">/</span>
+    <span>Silence is never approval</span><span class="sep">/</span>
+    <span>A loud failure beats a silent one</span><span class="sep">/</span>
+    <span>Proven now, not proven once</span><span class="sep">/</span>
+    <span>We protect leadership, not replace it</span><span class="sep">/</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">01</span><span class="sec-label">The problem</span></div>
+    <h2 class="big reveal">How much time does your team lose each week <span class="hl">remembering, chasing, and following up</span> on things that should already be organized?</h2>
+    <p class="body reveal">You don't wake up thinking "I need AI." You wake up thinking: we have too much to track, too many things depend on memory, and too many details can fall through the cracks. That's the problem H&amp;W solves — not with more AI, with more order.</p>
+    <div class="statrow">
+      <div class="stat reveal"><div class="k">Email</div><div class="v">Where decisions go to get lost in a thread.</div></div>
+      <div class="stat reveal"><div class="k">Memory</div><div class="v">The most common — and most fragile — tracking system in any organization.</div></div>
+      <div class="stat reveal"><div class="k">Meetings</div><div class="v">Action items agreed to, then quietly forgotten by Friday.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">02</span><span class="sec-label">What we do</span></div>
+    <h2 class="big reveal">We don't sell "AI." We build <span class="hl">structured operating systems</span> with proof built into every layer.</h2>
+    <p class="body reveal">Our product is not automation alone. It's governed automation — proof, boundaries, authority, and verification. Anyone can wire together a tool that does something. We build systems that do the right thing, prove that they did it, and stay provably reliable over time — not just on the day they were built.</p>
+  </div>
+</section>
+
+<!-- WHAT WE BELIEVE -->
+<section id="believe">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">03</span><span class="sec-label">What we believe</span></div>
+    <h2 class="big reveal">Standards are the product.</h2>
+    <p class="body reveal">The value isn't the AI. It's the discipline wrapped around it — and that discipline isn't negotiable per project. It's what actually protects the people who depend on the system.</p>
+    <div class="bento" style="margin-top:34px;">
+      <div class="tile emerald reveal"><div class="mono">Proof</div><h4>No proof, no Healthy.</h4><p>A system is never "fine" on reputation. If it can't show current evidence, it isn't Healthy.</p></div>
+      <div class="tile reveal"><div class="mono">Freshness</div><h4>Proven now, not once.</h4><p>Healthy means re-verified and still standing up today — not a status claimed months ago.</p></div>
+      <div class="tile amber reveal"><div class="mono">Authority</div><h4>Silence is never approval.</h4><p>A draft is not proof. A template is not approval. A generated output is not authority.</p></div>
+      <div class="tile fill reveal"><div class="mono">Failure</div><h4>Fail loud.</h4><p>Systems fail. What's unacceptable is failing quietly, so nobody hears until the damage spreads.</p></div>
+      <div class="tile reveal"><div class="mono">Boundaries</div><h4>Human judgment stays human.</h4><p>We don't automate what still requires a person to decide. Consequential actions need a named owner who said yes.</p></div>
+      <div class="tile reveal"><div class="mono">Role</div><h4>Protect leadership.</h4><p>We don't replace the principal, owner, or board. We make sure nothing important stays buried.</p></div>
+    </div>
+    <div class="log mono reveal">
+      <div>[<span class="tag">DOCTRINE</span>] no proof, no Healthy.</div>
+      <div>[<span class="tag">DOCTRINE</span>] no read-back, no verified write.</div>
+      <div>[<span class="tag">DOCTRINE</span>] no test, no client-ready.</div>
+      <div>[<span class="tag">DOCTRINE</span>] no live status without evidence.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE PROVIDE -->
+<section id="provide" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="sec-num">04</span><span class="sec-label">What we provide</span></div>
+    <div class="provide-grid">
+      <div>
+        <h2 class="big reveal" style="font-size:clamp(28px,3.4vw,40px);">The Administrative Clarity Pilot</h2>
+        <p class="body reveal">We don't open with the full system. The first engagement is narrow, safe, and proof-backed on purpose — because sellable doesn't mean bigger. It means packaged, proven, explainable, priced, and safe.</p>
+        <ul class="checks reveal">
+          <li>Clear weekly leadership summaries — no chasing required</li>
+          <li>Human-controlled approval on everything that matters</li>
+          <li>Proof-based status language — nothing "Healthy" without current evidence</li>
+          <li>Safe, scoped handling of sensitive data from day one</li>
+        </ul>
+      </div>
+      <div class="provide-photo reveal">
+        <img src="https://images.pexels.com/photos/8530086/pexels-photo-8530086.jpeg" alt="Two colleagues analyzing business data together on a laptop">
+      </div>
+    </div>
+    <div class="price-grid">
+      <div class="price free reveal">
+        <div class="tagp">Free</div>
+        <h4>See it before you pay</h4>
+        <p>Readiness conversation, demo walkthrough, and a simple reliability checklist. You should be able to see exactly what this is before spending a dollar.</p>
+      </div>
+      <div class="price paid reveal">
+        <div class="tagp">What you invest in</div>
+        <h4>The work that lasts</h4>
+        <p>Discovery, system blueprint, deployment, training, and the ongoing monitoring relationship — because Healthy expires without re-verification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap cta-grid">
+    <div>
+      <h2 class="reveal">We're not asking you to overhaul how your business runs. <span class="hl">We're asking for the opportunity to see if we can help it run more effectively, more efficiently, and at its best — with less stress.</span></h2>
+      <p class="reveal">See whether it reduces missed follow-up, improves visibility, and gives your leadership a clearer weekly picture — before you commit to anything bigger. Would that be worth a conversation?</p>
+      <a class="btn lg reveal" href="mailto:cdw68925@gmail.com?subject=Readiness%20conversation">Start the readiness conversation</a>
+    </div>
+    <div class="cta-photo reveal">
+      <img src="https://images.pexels.com/photos/8124406/pexels-photo-8124406.jpeg" alt="A diverse team of business people in conversation around a table">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="wordmark">H<span style="color:var(--emerald)">&amp;</span>W</div>
+      <div style="font-size:13px; margin-top:8px; max-width:280px;">Governed AI operating systems for schools and small businesses. Order, visibility, proof — without replacing leadership.</div>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:cdw68925@gmail.com">cdw68925@gmail.com</a>
+      <a href="https://cdw68925-collab.github.io/hw-legal/privacy.html">Privacy</a>
+      <a href="https://cdw68925-collab.github.io/hw-legal/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // rotating word
+  (function(){
+    var words = ["buried","forgotten","chased","missed","lost"];
+    var el = document.getElementById("rot"), i = 0;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setInterval(function(){
+      i = (i+1) % words.length;
+      el.style.opacity = 0;
+      setTimeout(function(){ el.textContent = words[i]; el.style.opacity = 1; }, 220);
+    }, 2400);
+    el.style.transition = "opacity .22s ease";
+  })();
+  // scroll reveal
+  (function(){
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { els.forEach(function(e){e.classList.add("in");}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+
+</body>
+</html>
